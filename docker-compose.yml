@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+    premier-league_php-fpm:
+        build:
+            context: './src'
+        container_name: premier-league_php-fpm
+        stdin_open: true
+        tty: true
+        volumes:
+            - ./src:/var/www
+        networks:
+            - premier-league
+        environment:
+            - DB_DATABASE=${DB_DATABASE}
+            - DB_USERNAME=${DB_USERNAME}
+            - DB_PASSWORD=${DB_PASSWORD}
+
+    premier-league-mysql:
+        image: mariadb:10.2.38
+        container_name: premier-league_mysql
+        hostname: premier-league_mysql
+        ports:
+            - "3306:3306"
+        volumes:
+            - premier-league-mysql-data:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=my-secret-pw
+            - MYSQL_DATABASE=${DB_DATABASE}
+            - MYSQL_USER=${DB_USERNAME}
+            - MYSQL_PASSWORD=${DB_PASSWORD}
+        networks:
+            - premier-league
+
+    redis:
+        image: redis:5.0.5
+        container_name: premier-league_redis
+        ports:
+            - "6379:6379"
+        networks:
+            - premier-league
+
+    premier-league-nginx:
+        image: nginx:alpine
+        container_name: premier-league_nginx
+        stdin_open: true
+        tty: true
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./src:/var/www/
+            - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+        networks:
+            - premier-league
+
+volumes:
+    premier-league-mysql-data:
+        external: true
+
+networks:
+    premier-league:
+        driver: bridge
