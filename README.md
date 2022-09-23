@@ -1,14 +1,14 @@
 # premier-league-laravel
 
-# Build
+// Build
 ./setup.sh
 
-# Start
+// Start
 ./start.sh
 
-# create database
+// create database
 php artisan migrate
 
-# create data
+// create data
 php artisan db:seed
 
