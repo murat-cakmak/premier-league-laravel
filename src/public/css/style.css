@@ -1,0 +1,118 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    background-color: #eeeeee;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.league-table {
+    width: 500px;
+    padding: 20px 0 0 20px;
+}
+
+.match-result {
+    width: 320px;
+    padding: 20px 20px 0 0;
+}
+
+.weekly {
+    background-color: white;
+    width: 500px;
+}
+
+.results {
+    background-color: white;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.weekly-title {
+    width: 498px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid black;
+    border-bottom: 0;
+    border-collapse: collapse;
+    background-color: white;
+    padding: 5px 0;
+}
+
+.results-title {
+    width: 319px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid black;
+    border-left: unset;
+    border-bottom: 0;
+    border-collapse: collapse;
+    background-color: white;
+    padding: 5px 0;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.league-table table, .league-table td {
+    border-right: 1px solid black;
+}
+
+.team {
+    padding-left: 5px;
+    vertical-align: middle;
+}
+
+.score {
+    text-align: center;
+}
+
+.match-result table, .match-result td {
+    border-left: unset;
+}
+
+.match-result tbody {
+    padding-bottom: 34px;
+}
+
+.match-result tbody tr {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.match-result thead {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+}
+
+.buttons {
+    width: 780px;
+    background-color: white;
+    margin: 0 20px 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+.buttons a {
+    text-decoration: none;
+    padding: 7px 20px;
+    border: 1px solid #eee;
+    color: #000;
+    border-radius: 7px;
+    background-color: whitesmoke;
+}
